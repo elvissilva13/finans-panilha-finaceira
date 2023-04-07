@@ -1,0 +1,182 @@
+<html>
+	<head>
+    <meta charset="utf-8" />
+		<title>Orçamento pessoal</title>
+
+		<!-- Bootstrap início -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstrap fim -->
+    <link rel="stylesheet" type="text/css" href="/css/estilo.css">
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="app.js"></script>
+	</head>
+
+  <body>
+
+    <header><!-- inicio Cabecalho -->
+      <nav class="navbar navbar-expand-sm navbar-light bg-warning">
+        <div class="container">
+          
+          <a href="#" class="navbar-brand">
+            <img src="/img/logo.png" width="142">
+          </a>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="nav-principal">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="/index.html" class="nav-link">Home</a>
+              </li>
+             
+              <li class="nav-item">
+                <a href="planilha.html" class="nav-link">Cadastrar</a>
+              </li>
+              <li class="nav-item">
+                <a href="consulta.html" class="nav-link">Consultar</a>
+              </li>
+             
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </header><!--/fim Cabecalh-->
+   
+<section id="home">
+        <div class="container">
+          <div class="row">
+            <div class="col mb-5">
+              <h1 class="display-4">Registro de nova despesa</h1>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-md-2">
+              <select class="form-control" id="ano">
+                <option value="">Ano</option>
+                <option value="2023">2023</option>
+              </select>
+            </div>
+
+            <div class="col-md-2">
+              <select class="form-control" id="mes">
+                <option value="">Mês</option>
+                <option value="1">Janeiro</option>
+                <option value="2">Fevereiro</option>
+                <option value="3">Março</option>
+                <option value="4">Abril</option>
+                <option value="5">Maio</option>
+                <option value="6">Junho</option>
+                <option value="7">Julho</option>
+                <option value="8">Agosto</option>
+                <option value="9">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+              </select>
+            </div>
+            
+            <div class="col-md-2">
+              <input type="text" class="form-control" placeholder="Dia" id="dia" />
+            </div>
+
+            <div class="col-md-6">
+              <select class="form-control" id="tipo">
+                <option value = "">Tipo</option>
+                <option value="1">Alimentação</option>
+                <option value="2">Educação</option>
+                <option value="3">Lazer</option>
+                <option value="4">Saúde</option>
+                <option value="5">Transporte</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8">
+              <input type="text" class="form-control" placeholder="Descrição" id="descricao" />
+            </div>
+
+            <div class="col-md-2">
+              <input type="text" class="form-control" placeholder="Valor" id="valor" />
+            </div>
+
+            <div class="col-md-2 d-flex justify-content-end">
+              <button type="button" class="btn btn-primary" onclick="cadastrarDespesas()">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 d-none d-md-flex align-items-center"><!--d-none tira a imagem -->
+          <img src="/img/capa-mulher.png">
+          <h3>Adicione suas Despesas para ter um melhor controle finaceiro!</h3>
+        </div>
+        
+
+      <!-- Modal registro de despesas e erro -->
+    <div class="modal fade" id="modalResgistrarDespesas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div id="idCor" >
+            <h5 class="modal-title" id="idDisparo"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="idMensagem">
+          
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btn" data-dismiss="modal"></button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+</section>
+
+<footer class="mt-4 mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <p>
+          <a href="">Home</a>
+          <a href="">recursos</a>
+          <a href="">Benefícios</a>
+          <a href="">Preços</a>
+        </p>
+      </div>
+      <div class="col-md-4 d-flex justify-content-end">
+        <a href="" class="btn btn-outline-dark">
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
+        <a href="" class="btn btn-outline-dark ml-2">
+          <i class="fab fa-twitter fa-lg"></i>
+        </a>
+        <a href="" class="btn btn-outline-dark ml-2">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+        <a href="" class="btn btn-outline-dark ml-2">
+          <i class="fab fa-youtube fa-lg"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+  </body>	
+
+</html>
