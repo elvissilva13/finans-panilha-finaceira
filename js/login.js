@@ -33,7 +33,7 @@ function comparaEmail(element, email, senha) {
      if ((element.email == email.value) && (element.senha == senha.value)) {
         const x =document.getElementById('botaoLogin');
         
-        window.location.href = "/planilha/planilha.html"
+        window.location.href = "planilha.html"
 
     }
     
