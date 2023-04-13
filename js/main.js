@@ -23,6 +23,8 @@ form.addEventListener("submit", (evento)=>{
 
                 email.value = "";
                 senha.value = "";
+
+                window.Location.href = "login.html";
         }
        
 
