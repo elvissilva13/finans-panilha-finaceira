@@ -24,7 +24,7 @@ form.addEventListener("submit", (evento)=>{
                 email.value = "";
                 senha.value = "";
 
-                window.Location.href = "planilha.html";
+                window.location.href = "planilha.html";
         }
        
 
