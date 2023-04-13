@@ -35,7 +35,7 @@ function comparaEmail(element, email, senha) {
         
         window.location.href = "planilha.html"
 
-    }
+    } 
     
 
   
